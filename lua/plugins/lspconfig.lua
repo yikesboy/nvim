@@ -223,6 +223,18 @@ return {
       },
     }
 
+    if vim.fn.executable 'sourcekit-lsp' == 1 then
+      require('lspconfig').sourcekit.setup {
+        capabilities = vim.tbl_deep_extend('force', capabilities, {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        }),
+      }
+    end
+
     -- Ensure the servers and tools above are installed
     --
     -- To check the current status of installed tools and/or manually install
