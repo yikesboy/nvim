@@ -12,3 +12,5 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center after going half a page down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Center after going half a page up' })
+
+vim.api.nvim_set_keymap('n', '<leader>nb', ':enew<CR>', { noremap = true, silent = true, desc = 'Create [N]ew [B]uffer' })
