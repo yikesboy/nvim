@@ -10,7 +10,7 @@ return {
       icon = nil,
     },
     display = {
-      theme = 'catppuccin',
+      theme = 'atom',
       flavor = 'dark',
       swap_fields = false,
       swap_icons = false,
