@@ -19,3 +19,7 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center after going half a page
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Center after going half a page up' })
 
 vim.keymap.set('n', '<leader>nb', ':enew<CR>', { noremap = true, silent = true, desc = 'Create [N]ew [B]uffer' })
+
+vim.keymap.set('n', '<leader>e', '<cmd>Oil .<CR>', { desc = 'Open oil.nvim in the current dir' })
+
+vim.keymap.set('n', '<leader>g', '<cmd>LazyGit<CR>', { desc = 'Open LazyGit' })
