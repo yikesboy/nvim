@@ -1,13 +1,17 @@
+--
+-- https://neovim.io/doc/user/lua-guide.html#_vim.opt
+--
+
+-- sets the global leader key
 vim.g.mapleader = ' '
+
+-- sets the local leader key
 vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-
--- Enable mouse mode, can be useful for resizing splits for example!
--- vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -17,12 +21,16 @@ vim.opt.showmode = false
 --  vim.opt.clipboard = 'unnamedplus'
 --end)
 
+-- preserve indentation when wrapping lines
 vim.opt.breakindent = true
 
+-- persitent undo accross sessions
 vim.opt.undofile = true
 
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+-- make searches case-insensitive
 vim.opt.ignorecase = true
+
+-- make searches case-sensitive when starting with captial letter
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
@@ -34,12 +42,15 @@ vim.opt.updatetime = 250
 -- Decrease mapped sequence wait time
 vim.opt.timeoutlen = 300
 
--- Configure how new splits should be opened
+-- open vertical splits on the right
 vim.opt.splitright = true
+
+-- open horizontal splits below
 vim.opt.splitbelow = true
 
--- Sets how neovim will display certain whitespace characters in the editor.
+-- display specific whitespace characters with symbols
 vim.opt.list = true
+-- symbols for tabs, trailing whitespaces, non-breaking spaces
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
@@ -48,12 +59,18 @@ vim.opt.inccommand = 'split'
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
--- Minimal number of screen lines to keep above and below the cursor.
+-- minimum space (in lines) between cursor and top/bottom of window
 vim.opt.scrolloff = 10
 
--- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- require confirmation if performing an operation that would fail
+-- e.g. :q in an buffer with unsaved changes
 vim.opt.confirm = true
 
+-- number of spaces a tab represents
 vim.o.tabstop = 2
+
+-- number of spaces per level of indentation
 vim.o.shiftwidth = 2
+
+-- converts tabs to spaces when typing or indenting
 vim.o.expandtab = true
