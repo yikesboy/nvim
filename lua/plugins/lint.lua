@@ -11,7 +11,12 @@ return {
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
-      -- lint.linters_by_ft = lint.linters_by_ft or {}
+      lint.linters_by_ft = lint.linters_by_ft or {}
+      lint.linters_by_ft['go'] = { 'golangcilint' }
+      lint.linters_by_ft['swift'] = { 'swiftlint' }
+      lint.linters_by_ft['python'] = { 'ruff' }
+      lint.linters_by_ft['lua'] = { 'selene' }
+      lint.linters_by_ft['yaml'] = { 'yamllint' }
       -- lint.linters_by_ft['markdown'] = { 'markdownlint' }
       --
       -- However, note that this will enable a set of default linters,
@@ -43,18 +48,18 @@ return {
 
       -- Create autocommand which carries out the actual linting
       -- on the specified events.
-      --local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
-      --vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
-      --  group = lint_augroup,
-      --  callback = function()
-      --    -- Only run the linter in buffers that you can modify in order to
-      --    -- avoid superfluous noise, notably within the handy LSP pop-ups that
-      --    -- describe the hovered symbol using Markdown.
-      --    if vim.opt_local.modifiable:get() then
-      --      lint.try_lint()
-      --    end
-      --  end,
-      --})
+      local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
+      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+        group = lint_augroup,
+        callback = function()
+          -- Only run the linter in buffers that you can modify in order to
+          -- avoid superfluous noise, notably within the handy LSP pop-ups that
+          -- describe the hovered symbol using Markdown.
+          if vim.opt_local.modifiable:get() then
+            lint.try_lint()
+          end
+        end,
+      })
     end,
   },
 }
