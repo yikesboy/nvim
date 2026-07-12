@@ -104,8 +104,11 @@ return {
         timeout = 300000,
       },
       discord = {
+        pipe_paths = {
+          '/run/user/1000/discord-ipc-0',
+        },
         reconnect = {
-          enabled = false,
+          enabled = true,
           interval = 5000,
           initial = true,
         },

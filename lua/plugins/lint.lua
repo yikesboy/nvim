@@ -17,6 +17,9 @@ return {
       lint.linters_by_ft['python'] = { 'ruff' }
       lint.linters_by_ft['lua'] = { 'selene' }
       lint.linters_by_ft['yaml'] = { 'yamllint' }
+      lint.linters_by_ft['markdown'] = nil
+      lint.linters_by_ft['rst'] = nil
+      lint.linters_by_ft['text'] = nil
       -- lint.linters_by_ft['markdown'] = { 'markdownlint' }
       --
       -- However, note that this will enable a set of default linters,
@@ -46,6 +49,48 @@ return {
       -- lint.linters_by_ft['terraform'] = nil
       -- lint.linters_by_ft['text'] = nil
 
+      local function resolve_linter(name)
+        local linter = lint.linters[name]
+        if not linter then
+          return nil
+        end
+        if type(linter) == 'function' then
+          linter = linter()
+        end
+        linter.name = linter.name or name
+        return linter
+      end
+
+      local function linter_is_available(name)
+        local linter = resolve_linter(name)
+        if not linter then
+          return false
+        end
+
+        local cmd = linter.cmd
+        if type(cmd) == 'function' then
+          local ok, resolved = pcall(cmd)
+          if not ok then
+            return false
+          end
+          cmd = resolved
+        end
+
+        return type(cmd) == 'string' and vim.fn.executable(cmd) == 1
+      end
+
+      local function try_lint_available()
+        local names = lint._resolve_linter_by_ft(vim.bo.filetype) or {}
+        if #names == 0 then
+          return
+        end
+
+        local available = vim.tbl_filter(linter_is_available, names)
+        if #available > 0 then
+          lint.try_lint(available)
+        end
+      end
+
       -- Create autocommand which carries out the actual linting
       -- on the specified events.
       local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
@@ -56,7 +101,7 @@ return {
           -- avoid superfluous noise, notably within the handy LSP pop-ups that
           -- describe the hovered symbol using Markdown.
           if vim.opt_local.modifiable:get() then
-            lint.try_lint()
+            try_lint_available()
           end
         end,
       })

@@ -10,6 +10,10 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
+if vim.g.neovide then
+  vim.g.neovide_opacity = 0.85
+end
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
