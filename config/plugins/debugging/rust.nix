@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
-  keys = import ../lib/keys.nix;
-  modes = import ../lib/modes.nix;
+  keys = import ../../lib/keys.nix;
+  modes = import ../../lib/modes.nix;
 in {
   plugins = {
     dap.enable = true;
@@ -50,6 +50,6 @@ in {
   ];
 
   extraPackages = [
-    pkgs.vscode-extension.vadimcn.vscode-lldb.adapter;
+    pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter
   ];
 }

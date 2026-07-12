@@ -7,6 +7,7 @@
     ./formatting.nix
     ./cord.nix
     ./gitsigns.nix
+    ./debugging
   ];
 
   # provides runtime lazy loading for plugins
