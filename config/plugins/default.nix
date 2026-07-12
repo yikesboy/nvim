@@ -5,6 +5,7 @@
     ./colorscheme.nix
     ./comment.nix
     ./formatting.nix
+    ./cord.nix
   ];
 
   # provides runtime lazy loading for plugins
