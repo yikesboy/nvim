@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
-    imports = [];
+    imports = [
+        ./autocmds.nix
+    ];
 
     extraPackages = with pkgs; [];
 }
