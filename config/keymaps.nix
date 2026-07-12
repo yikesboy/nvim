@@ -1,29 +1,18 @@
 let
-  commonKeys = {
-    esc = "<Esc>";
-    leader = sequence: "<leader>${sequence}";
-    ctrl = key: "<C-${key}>";
-    cmd = command: "<cmd>${command}<CR>";
-  };
-
-  modes = {
-    normal = "n";
-    visual = "v";
-    insert = "i";
-    terminal = "t";
-  };
+  modes = import ./lib/modes.nix;
+  keys = import ./lib/keys.nix;
 in {
   keymaps = [
     {
       mode = modes.normal;
-      key = commonKeys.esc;
-      action = commonKeys.cmd "nohlsearch";
+      key = keys.esc;
+      action = keys.cmd "nohlsearch";
     }
 
     {
       mode = modes.normal;
-      key = commonKeys.leader "q";
-      action = commonKeys.cmd "lua vim.diagnostic.setloclist()";
+      key = keys.leader "q";
+      action = keys.cmd "lua vim.diagnostic.setloclist()";
       options = {
         silent = true;
         desc = "Open diagnostic [Q]uickfix list";
@@ -32,57 +21,57 @@ in {
 
     {
       mode = modes.terminal;
-      key = commonKeys.esc + commonKeys.esc;
-      action = commonKeys.ctrl "\\" + commonKeys.ctrl "n";
+      key = keys.esc + keys.esc;
+      action = keys.ctrl "\\" + keys.ctrl "n";
       options.desc = "Exit terminal mode";
     }
 
     {
       mode = modes.normal;
-      key = commonKeys.ctrl "h";
-      action = commonKeys.ctrl "w" + commonKeys.ctrl "h";
+      key = keys.ctrl "h";
+      action = keys.ctrl "w" + keys.ctrl "h";
       options.desc = "Move focus to the left window";
     }
 
     {
       mode = modes.normal;
-      key = commonKeys.ctrl "l";
-      action = commonKeys.ctrl "w" + commonKeys.ctrl "l";
+      key = keys.ctrl "l";
+      action = keys.ctrl "w" + keys.ctrl "l";
       options.desc = "Move focus to the right window";
     }
 
     {
       mode = modes.normal;
-      key = commonKeys.ctrl "j";
-      action = commonKeys.ctrl "w" + commonKeys.ctrl "j";
+      key = keys.ctrl "j";
+      action = keys.ctrl "w" + keys.ctrl "j";
       options.desc = "Move focus to the lower window";
     }
 
     {
       mode = modes.normal;
-      key = commonKeys.ctrl "k";
-      action = commonKeys.ctrl "w" + commonKeys.ctrl "k";
+      key = keys.ctrl "k";
+      action = keys.ctrl "w" + keys.ctrl "k";
       options.desc = "Move focus to the upper window";
     }
 
     {
       mode = modes.normal;
-      key = commonKeys.ctrl "d";
-      action = commonKeys.ctrl "d" + "zz";
+      key = keys.ctrl "d";
+      action = keys.ctrl "d" + "zz";
       options.desc = "Center after going half a page down";
     }
 
     {
       mode = modes.normal;
-      key = commonKeys.ctrl "u";
-      action = commonKeys.ctrl "u" + "zz";
+      key = keys.ctrl "u";
+      action = keys.ctrl "u" + "zz";
       options.desc = "Center after going half a page up";
     }
 
     {
       mode = modes.normal;
-      key = commonKeys.leader "nb";
-      action = commonKeys.cmd "enew";
+      key = keys.leader "nb";
+      action = keys.cmd "enew";
       options = {
         silent = true;
         desc = "Create [N]ew [B]uffer";
@@ -91,8 +80,8 @@ in {
 
     {
       mode = modes.normal;
-      key = commonKeys.leader "e";
-      action = commonKeys.cmd "Oil .";
+      key = keys.leader "e";
+      action = keys.cmd "Oil .";
       options = {
         silent = true;
         desc = "Open oil.nvim in the current directory";
@@ -101,8 +90,8 @@ in {
 
     {
       mode = modes.normal;
-      key = commonKeys.leader "g";
-      action = commonKeys.cmd "LazyGit";
+      key = keys.leader "g";
+      action = keys.cmd "LazyGit";
       options = {
         silent = true;
         desc = "Open Lazy[G]it";
