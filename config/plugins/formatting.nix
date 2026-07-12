@@ -20,6 +20,7 @@ in {
         rust = ["rustfmt"];
         lua = ["stylua"];
         markdown = ["prettier"];
+        nix = ["nixfmt"];
 
         # running in order
         python = [
@@ -31,9 +32,10 @@ in {
   };
 
   extraPackages = with pkgs; [
-    stylua
     prettier
     rustfmt
+    stylua
+    nixfmt
     ruff
   ];
 }
