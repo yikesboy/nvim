@@ -6,6 +6,7 @@
     ./comment.nix
     ./formatting.nix
     ./cord.nix
+    ./gitsigns.nix
   ];
 
   # provides runtime lazy loading for plugins
