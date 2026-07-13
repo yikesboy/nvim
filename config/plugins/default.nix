@@ -10,7 +10,7 @@
     ./indent-blankline.nix
     ./lazygit.nix
     ./linting.nix
-    ./debugging
+    ./lsp
   ];
 
   # provides runtime lazy loading for plugins
