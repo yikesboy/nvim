@@ -27,7 +27,8 @@ in {
     }
   ];
 
-  extraPackages = [
-    pkgs.lazygit
+  extraPackages = with pkgs; [
+    git
+    lazygit
   ];
 }

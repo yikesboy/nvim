@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   keys = import ../lib/keys.nix;
   modes = import ../lib/modes.nix;
@@ -82,5 +83,9 @@ in {
       action = gitsigns "preview_hunk_inline";
       options.desc = "Preview deleted lines inline";
     }
+  ];
+
+  extraPackages = with pkgs; [
+    git
   ];
 }
