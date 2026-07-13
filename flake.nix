@@ -3,11 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs = { self, nixpkgs, nixvim }: 
@@ -23,5 +19,7 @@
       default = nvim;
       neovim = nvim;
     };
+
+    checks.${system}.default = nvim;
   };
 }
