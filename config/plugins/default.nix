@@ -8,6 +8,7 @@
     ./cord.nix
     ./gitsigns.nix
     ./indent-blankline.nix
+    ./lazygit.nix
     ./debugging
   ];
 

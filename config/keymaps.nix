@@ -87,15 +87,5 @@ in {
         desc = "Open oil.nvim in the current directory";
       };
     }
-
-    {
-      mode = modes.normal;
-      key = keys.leader "g";
-      action = keys.cmd "LazyGit";
-      options = {
-        silent = true;
-        desc = "Open Lazy[G]it";
-      };
-    }
   ];
 }
