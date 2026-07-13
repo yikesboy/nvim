@@ -7,6 +7,7 @@
     ./formatting.nix
     ./cord.nix
     ./gitsigns.nix
+    ./indent-blankline.nix
     ./debugging
   ];
 
