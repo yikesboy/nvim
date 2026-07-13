@@ -13,6 +13,8 @@
     ./mini.nix
     ./oil.nix
     ./snacks.nix
+    ./telescope.nix
+    ./todo-comments.nix
     ./lsp
   ];
 
