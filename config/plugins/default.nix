@@ -9,6 +9,7 @@
     ./gitsigns.nix
     ./indent-blankline.nix
     ./lazygit.nix
+    ./linting.nix
     ./debugging
   ];
 
