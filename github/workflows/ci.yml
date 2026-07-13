@@ -1,0 +1,43 @@
+---
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v7
+
+      - name: install nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: check formatting
+        run: |
+          nix fmt
+          git diff --exit-code
+
+      - name: check flake
+        run: nix flake check
+
+      - name: build neovim
+        run: nix build .#neovim
+
+      - name: test neovim startup
+        run: ./result/bin/nvim --headless "+qa!"
