@@ -12,6 +12,7 @@
     ./linting.nix
     ./mini.nix
     ./oil.nix
+    ./snacks.nix
     ./lsp
   ];
 
