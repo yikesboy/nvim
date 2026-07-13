@@ -4,7 +4,8 @@ let
 
   telescope = command: keys.cmd "Telescope ${command}";
   lua = command: keys.cmd "lua ${command}";
-in {
+in
+{
   keymapsOnEvents.LspAttach = [
     {
       mode = modes.normal;

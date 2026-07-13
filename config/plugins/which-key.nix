@@ -1,7 +1,8 @@
 let
   keys = import ../lib/keys.nix;
   modes = import ../lib/modes.nix;
-in {
+in
+{
   plugins.which-key = {
     enable = true;
     autoLoad = true;

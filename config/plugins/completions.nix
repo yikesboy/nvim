@@ -1,6 +1,7 @@
 let
   keys = import ../lib/keys.nix;
-in {
+in
+{
   plugins = {
     blink-cmp = {
       enable = true;

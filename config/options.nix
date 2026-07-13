@@ -42,9 +42,9 @@
     # display specific whitespace characters with symbols
     list = true;
     listchars = {
-      tab = "» ";   # tab
-      trail = "·";  # trailing whitespace
-      nbsp = "␣";   # non-breaking space
+      tab = "» "; # tab
+      trail = "·"; # trailing whitespace
+      nbsp = "␣"; # non-breaking space
     };
 
     # preview subsitutions live, while typing

@@ -1,10 +1,10 @@
 {
-  imports = [ 
+  imports = [
     ./keymaps.nix
     ./diagnostics.nix
     ./highlights.nix
     ./inlay-hints.nix
-    ./servers 
+    ./servers
   ];
 
   plugins = {
@@ -12,7 +12,7 @@
     telescope.enable = true;
     fidget = {
       enable = true;
-      
+
       settings.notification = {
         line_margin = 0;
 

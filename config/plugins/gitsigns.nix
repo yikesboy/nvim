@@ -3,7 +3,8 @@ let
   keys = import ../lib/keys.nix;
   modes = import ../lib/modes.nix;
   gitsigns = command: keys.cmd "Gitsigns ${command}";
-in {
+in
+{
   plugins.gitsigns.enable = true;
 
   keymaps = [

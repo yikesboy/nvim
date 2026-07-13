@@ -1,4 +1,4 @@
-let 
+let
   inlayHints = {
     includeInlayParameterNameHints = "all";
     includeInlayParameterNameHintsWhenArgumentMatchesName = true;
@@ -8,7 +8,8 @@ let
     includeInlayFunctionLikeReturnTypeHints = true;
     includeInlayEnumMemberValueHints = true;
   };
-in {
+in
+{
   plugins.lsp.servers.ts_ls = {
     enable = true;
 

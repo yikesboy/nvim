@@ -1,9 +1,10 @@
-{ pkgs, ...  }:
+{ pkgs, ... }:
 let
   keys = import ../lib/keys.nix;
   modes = import ../lib/modes.nix;
   telescope = command: keys.cmd "Telescope ${command}";
-in {
+in
+{
   plugins.telescope = {
     enable = true;
     autoLoad = true;
@@ -45,7 +46,7 @@ in {
     };
   };
 
-  keymaps =  [
+  keymaps = [
     {
       mode = modes.normal;
       key = keys.leader "/";

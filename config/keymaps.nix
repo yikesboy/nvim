@@ -1,7 +1,8 @@
 let
   modes = import ./lib/modes.nix;
   keys = import ./lib/keys.nix;
-in {
+in
+{
   keymaps = [
     {
       mode = modes.normal;

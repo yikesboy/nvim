@@ -1,15 +1,16 @@
 { pkgs, ... }:
-let 
+let
   keys = import ../lib/keys.nix;
   modes = import ../lib/modes.nix;
-in {
+in
+{
   plugins.conform-nvim = {
     enable = true;
 
     # Only load conform when formatting may be needed
     lazyLoad.settings = {
-      event = ["BufWritePre"];  # before writing a buffer
-      cmd = ["ConformInfo"];    # when running :ConformInfo
+      event = [ "BufWritePre" ]; # before writing a buffer
+      cmd = [ "ConformInfo" ]; # when running :ConformInfo
     };
 
     settings = {
@@ -17,10 +18,10 @@ in {
 
       # which formatter for which filetype
       formatters_by_ft = {
-        rust = ["rustfmt"];
-        lua = ["stylua"];
-        markdown = ["prettier"];
-        nix = ["nixfmt"];
+        rust = [ "rustfmt" ];
+        lua = [ "stylua" ];
+        markdown = [ "prettier" ];
+        nix = [ "nixfmt" ];
 
         # running in order
         python = [
