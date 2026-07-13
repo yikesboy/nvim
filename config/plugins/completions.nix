@@ -70,7 +70,20 @@ in {
 
     luasnip.enable = true;
     friendly-snippets.enable = true;
-    lazydev.enable = true;
+    lazydev = {
+      enable = true;
+
+      lazyLoad.settings.ft = [ "lua" ];
+      
+      # Lua tooling for Neovim runtime APIs.
+      settings.library = [
+        {
+          # load luv types when code references `vim.uv`;
+          path = "\${3rd}/luv/library";
+          words = [ "vim%.uv" ];
+        }
+      ];
+    };
   };
 
   extraConfigLua = ''
