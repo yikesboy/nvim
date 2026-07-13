@@ -16,6 +16,8 @@
     ./telescope.nix
     ./todo-comments.nix
     ./treesitter.nix
+    ./sleuth.nix
+    ./which-key.nix
     ./lsp
   ];
 
