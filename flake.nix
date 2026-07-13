@@ -20,6 +20,8 @@
       neovim = nvim;
     };
 
+    formatter.${system} = pkgs.nixfmt-tree;
+
     checks.${system}.default = nvim;
   };
 }
