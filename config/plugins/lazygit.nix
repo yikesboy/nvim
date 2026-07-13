@@ -2,6 +2,7 @@
 let
   keys = import ../lib/keys.nix;
   modes = import ../lib/modes.nix;
+
 in {
   plugins.lazygit = {
     enable = true;

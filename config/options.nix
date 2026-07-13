@@ -48,7 +48,7 @@
     };
 
     # preview subsitutions live, while typing
-    inccomand = "split";
+    inccommand = "split";
 
     # show which line the cursor is on
     cursorline = true;

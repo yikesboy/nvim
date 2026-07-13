@@ -57,7 +57,7 @@ in {
           ];
 
           providers.lazydev = {
-            module = "lazydev.integrations.blik";
+            module = "lazydev.integrations.blink";
             score_offset = 100;
           };
         };
@@ -73,8 +73,6 @@ in {
     lazydev = {
       enable = true;
 
-      lazyLoad.settings.ft = [ "lua" ];
-      
       # Lua tooling for Neovim runtime APIs.
       settings.library = [
         {

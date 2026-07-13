@@ -43,6 +43,36 @@
             }
           ];
         };
-      };
+      sections = [
+        {
+          section = "header";
+        }
+
+        {
+          section = "keys";
+          gap = 1;
+          padding = 1;
+        }
+
+        {
+  __raw = ''
+    function()
+      local startup =
+        vim.fn.reltimefloat(vim.fn.reltime(vim.g.start_time)) * 1000
+
+      return {
+        text = string.format("⚡ Neovim loaded in %.2f ms", startup),
+        align = "center",
+        hl = "SnacksDashboardFooter",
+        padding = 1,
+      }
+    end
+  '';
+}      ];
     };
-  }
+  };
+
+  extraConfigLuaPre = ''
+    vim.g.start_time = vim.fn.reltime()
+  '';
+}

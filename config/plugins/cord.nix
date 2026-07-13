@@ -27,9 +27,6 @@
         terminal = "Running commands";
         dashboard = "Home";
       };
-
-      # do not expose repo links
-      buttons = false;
     };
   };
 }
