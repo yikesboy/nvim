@@ -14,8 +14,6 @@
       enable = true;
 
       settings.notification = {
-        line_margin = 0;
-
         window = {
           normal_hl = "Normal";
           winblend = 0;
