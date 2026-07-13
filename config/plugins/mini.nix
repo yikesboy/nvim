@@ -14,6 +14,8 @@
         use_icons = true;
       };
     };
+
+    mini-icons.enable = true;
   };
 
   # overwrite statusline line display to "linenumber:virtualcolumn"

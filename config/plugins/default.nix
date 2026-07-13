@@ -11,6 +11,7 @@
     ./lazygit.nix
     ./linting.nix
     ./mini.nix
+    ./oil.nix
     ./lsp
   ];
 
