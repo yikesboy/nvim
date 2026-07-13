@@ -10,6 +10,7 @@
     ./indent-blankline.nix
     ./lazygit.nix
     ./linting.nix
+    ./mini.nix
     ./lsp
   ];
 
