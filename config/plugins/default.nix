@@ -15,6 +15,7 @@
     ./snacks.nix
     ./telescope.nix
     ./todo-comments.nix
+    ./treesitter.nix
     ./lsp
   ];
 
