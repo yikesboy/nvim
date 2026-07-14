@@ -1,8 +1,4 @@
 { pkgs, ... }:
-let
-  keys = import ../lib/keys.nix;
-  modes = import ../lib/modes.nix;
-in
 {
   plugins.conform-nvim = {
     enable = true;
@@ -15,6 +11,11 @@ in
 
     settings = {
       notify_on_error = false;
+
+      format_on_save = {
+        timeout_ms = 500;
+        lsp_format = "fallback";
+      };
 
       # which formatter for which filetype
       formatters_by_ft = {
