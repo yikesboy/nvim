@@ -21,6 +21,11 @@ in
             "fallback"
           ];
 
+          "${keys.enter}" = [
+            "accept"
+            "fallback"
+          ];
+
           "${keys.shift (keys.tab)}" = [
             "select_prev"
             "fallback"

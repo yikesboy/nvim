@@ -1,6 +1,6 @@
 {
   esc = "<Esc>";
-  enter = "<Enter>";
+  enter = "<CR>";
   tab = "<Tab>";
 
   leader = sequence: "<leader>${sequence}";
