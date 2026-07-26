@@ -38,11 +38,6 @@ in
         action = "resume";
         options.desc = "[F]ind [R]esume";
       };
-
-      ${keys.leader ""} = {
-        action = "buffers";
-        options.desc = "Find existing buffers";
-      };
     };
   };
 
