@@ -6,6 +6,7 @@
     ./python.nix
     ./typescript.nix
     ./rust.nix
+    ./typst.nix
     ./java.nix
   ];
 }
